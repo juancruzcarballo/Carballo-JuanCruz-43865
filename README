@@ -1,0 +1,18 @@
+Proyecto final Coderhouse
+Curso: Python
+Comisión: 43865
+Alumno: Carballo, Juan Cruz
+Nombre: Cava Negra
+
+La página web cuenta con un inicio donde se eencuentra contenido informativo, acompañado de imagenes, footer, un menú compuesto por diferentes opciones de navegabilidad, entre ellas, el registro de usuario, ingreso con usuario y clave, about donde figuran mis datos, una vez ingresado con usuario y clave registrados se observa que tenemos mas funcionalidades, que nos permitirá crear ABM de los diferentess datos.
+Enumeración de tareas a realizar:
+Visualizar listado de vinos, buscar el producto mediante precio
+ABM de vinos.
+ABM de clientes.
+ABM de marcas.
+ABM de empleados.
+Crear y editar usuario, perfil y avatar. 
+Cerrar Sesión de usuario.
+Ver panel administrador para rol administrador.
+
+Para dicho proyecto he utilizado tanto para back end y front end todo lo aprendido en clases, django, python, bootstrap.

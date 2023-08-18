@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+{% block titulo %}Marcas que nos acompañan{% endblock titulo %} 
+{% block cabecera %}Marcas que nos acompañan {% endblock cabecera %} 
+{% block contenido %}
+    <h2>Marcas que nos acompañan</h2>
+    <form action="" method="POST">
+        {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock contenido %}

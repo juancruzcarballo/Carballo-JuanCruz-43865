@@ -1,0 +1,76 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+
+{% block titulo %}
+    Vinos
+{% endblock titulo %} 
+
+
+{% block cabecera %}
+   Vinos
+{% endblock cabecera %} 
+
+{% block contenido %}
+<form action="/app/buscar3" method="get">
+  {% csrf_token %}
+  <input type="text" name="precio" id="precio">
+  <input type="submit" value="Buscar">
+
+
+<table>
+<table>
+    <tr>
+        <td width="200"><h2>Vinos</h2></td>
+        <td>
+            <a
+            href="{% url 'create_vino' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Tipo de uva</th>
+      <th>Precio</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for v in vino_list %}
+    <tr>
+      <td>{{ v.id }}</td>
+      <td>{{ v.nombre }}</td>
+      <td>{{ v.tipo }}</td>
+      <td>$ {{ v.precio }}</td>
+
+      <td>
+        <a
+        href="{% url 'detail_vino' v.id %}"
+        class="btn btn-info"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+        ><i class="fa fa-search fa-sm" title="View Record"></i>
+        </a>
+        <a
+          href="{% url 'update_vino' v.id %}"
+          class="btn btn-primary"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+        </a>
+        <a
+          href="{% url 'delete_vino' v.id %}"
+          class="btn btn-danger"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenido %}

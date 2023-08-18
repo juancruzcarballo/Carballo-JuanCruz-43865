@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+
+{% block titulo %}
+   Marcas que nos acompañan
+{% endblock titulo %} 
+
+
+{% block cabecera %}
+   Marcas que nos acompañan
+{% endblock cabecera %} 
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Marcas que nos acompañan</h2></td>
+        <td>
+            <a
+            href="{% url 'create_marca' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in marca_list %}
+    <tr>
+      <td>{{ m.id }}</td>
+      <td>{{ m.nombre }}</td>
+      <td>{{ m.email }}</td>
+      <td>{{ m.telefono }}</td>
+
+      <td>
+        <a
+        href="{% url 'detail_marca' m.id %}"
+        class="btn btn-info"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+        ><i class="fa fa-search fa-sm" title="View Record"></i>
+        </a>
+        <a
+          href="{% url 'update_marca' m.id %}"
+          class="btn btn-primary"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+        </a>
+        <a
+          href="{% url 'delete_marca' m.id %}"
+          class="btn btn-danger"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenido %}

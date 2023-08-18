@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block cabecera %}
+  Resultados de la búsqueda:{{ precio }}  
+{% endblock cabecera %}
+    
+
+{% block contenido %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo de uva</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+        {% for vino in db %}
+        <tr>
+            <td>{{ vino.id }}</td>
+            <td>{{ vino.nombre }}</td>
+            <td>{{ vino.tipo }}</td>
+            <td>$ {{ vino.precio }}</td>
+        </tr>
+        {% endfor %}
+    
+    
+     </tbody>
+    </table>
+
+{% endblock contenido %}
